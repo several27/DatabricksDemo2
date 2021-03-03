@@ -23,6 +23,7 @@ object Main {
     val df_CleanupData:  Reformat = CleanupData(spark,  df_Customers)
     val df_Orders:       Source   = Orders(spark)
     val df_ByCustomerId: Join     = ByCustomerId(spark, df_CleanupData, df_Orders)
+    CustomersOrders(spark, df_ByCustomerId)
 
   }
 

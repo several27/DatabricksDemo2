@@ -11,77 +11,86 @@
           "detailedStats" : false,
           "udf_definitions" : [ ],
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "first_name",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "first_name"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "first_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "last_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "phone",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "phone"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "phone"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "email",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "email"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "email"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "country_code",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "country_code"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "country_code"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "account_open_date",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "account_open_date"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "account_open_date"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "account_flags",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "account_flags"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "account_flags"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "full_name",
+            "functionName" : "column_expression",
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "concat(first_name, ' - ', last_name)"
             } ],
-            "functionName" : "column_expression",
-            "enabled" : true,
-            "addReplaceColumn" : "full_name"
+            "comment" : null,
+            "enabled" : true
           } ],
           "limit" : 0
         },
@@ -122,6 +131,7 @@
       },
       "Orders" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -141,6 +151,7 @@
       },
       "ByCustomerId" : {
         "component" : "Join",
+        "group" : null,
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
@@ -194,6 +205,25 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "CustomersOrders" : {
+        "component" : "Target",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "966",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "CustomersOrders",
+          "x" : 694,
+          "y" : 156
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -235,11 +265,24 @@
         "route" : "e_ryXnIrTfO"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "ByCustomerId",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "CustomersOrders",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_HklXvB6M_"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1614792409993,
+      "lastUpdated" : 1614792520943,
       "id" : "DemoWorkflow",
       "memory" : 1,
       "imported" : true,
