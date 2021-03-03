@@ -1,0 +1,47 @@
+{
+  "datasetId" : "966",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "phone",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "order_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "Table",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "tableName" : "customers_orders_output_demo",
+      "databaseName" : "default"
+    }
+  },
+  "dataFormat" : "hive",
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "provider" : "delta"
+    }
+  }
+}
