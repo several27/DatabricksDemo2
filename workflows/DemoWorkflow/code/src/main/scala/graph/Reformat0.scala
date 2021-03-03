@@ -30,7 +30,7 @@ object Reformat0 {
       col("country_code"),
       col("account_open_date"),
       col("account_flags"),
-      concat(col("first_name"), col("last_name")).as("full_name")
+      concat(col("first_name"), lit(" - "), col("last_name")).as("full_name")
     )
 
     out
