@@ -1,0 +1,128 @@
+{
+  "graph" : {
+    "processes" : {
+      "Customers" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "950",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Customers",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "customer_id"
+            } ],
+            "addReplaceColumn" : "customer_id"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "first_name"
+            } ],
+            "addReplaceColumn" : "first_name"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "last_name"
+            } ],
+            "addReplaceColumn" : "last_name"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "phone"
+            } ],
+            "addReplaceColumn" : "phone"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "email"
+            } ],
+            "addReplaceColumn" : "email"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "country_code"
+            } ],
+            "addReplaceColumn" : "country_code"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "account_open_date"
+            } ],
+            "addReplaceColumn" : "account_open_date"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "account_flags"
+            } ],
+            "addReplaceColumn" : "account_flags"
+          }, {
+            "addReplaceColumn" : "full_name",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "expr" : "CONCAT(first_name, last_name)",
+              "type" : "sql"
+            } ]
+          } ]
+        },
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 359,
+          "y" : 52
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Customers",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_Hkk6BS6G_"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1614792186416,
+      "id" : "DemoWorkflow",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : null
+    },
+    "inports" : { },
+    "outports" : { }
+  }
+}
