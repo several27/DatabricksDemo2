@@ -1,7 +1,6 @@
 {
-  "datasetId" : "datasetId",
-  "projectId" : "projectId",
   "description" : "PLACEHOLDER_DESC",
+  "datasetId" : "950",
   "dataFormat" : "csv",
   "datasetType" : "File",
   "schema" : {
@@ -9,51 +8,58 @@
     "fields" : [ {
       "name" : "customer_id",
       "type" : "integer",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "first_name",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "last_name",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "phone",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "email",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "country_code",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "account_open_date",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "account_flags",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/demo2@simpledatalabs.com/CustomersDatasetInput.csv"
+    }
   },
   "inputProperties" : {
     "properties" : {
-      "inferSchema" : "true",
       "sep" : ","
     }
   },
   "outputProperties" : {
     "properties" : {
       "sep" : ","
-    }
-  },
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Prophecy/demo2@simpledatalabs.com/CustomersDatasetInput.csv"
     }
   }
 }
