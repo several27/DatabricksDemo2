@@ -15,8 +15,8 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "Reformat0", label = "Reformat0", x = 359, y = 52, phase = 0)
-object Reformat0 {
+@Visual(id = "CleanupData", label = "CleanupData", x = 359, y = 52, phase = 0)
+object CleanupData {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._

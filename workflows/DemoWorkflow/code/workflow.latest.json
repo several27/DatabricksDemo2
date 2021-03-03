@@ -1,47 +1,9 @@
 {
-  "resolvers" : [ ],
   "graph" : {
-    "metainfo" : {
-      "cluster" : "local",
-      "id" : "id",
-      "memory" : 1,
-      "mode" : "batch",
-      "processors" : 1,
-      "language" : "scala",
-      "interimMode" : "full",
-      "udfs" : {
-        "language" : "scala",
-        "udfs" : [ ]
-      }
-    },
-    "connections" : [ {
-      "metadata" : {
-        "route" : "e1"
-      },
-      "src" : {
-        "port" : "out",
-        "process" : "Customers"
-      },
-      "tgt" : {
-        "port" : "in",
-        "process" : "Reformat0"
-      }
-    } ],
-    "groups" : [ ],
-    "inports" : { },
-    "outports" : { },
     "processes" : {
-      "Reformat0" : {
+      "CleanupData" : {
         "component" : "Reformat",
-        "metadata" : {
-          "label" : "Reformat0",
-          "x" : 359,
-          "y" : 52
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
+        "group" : null,
         "properties" : {
           "src_desc" : "",
           "phase" : 0,
@@ -49,93 +11,94 @@
           "detailedStats" : false,
           "udf_definitions" : [ ],
           "functions" : [ {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "customer_id",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"customer_id\")"
+              "type" : "sql",
+              "expr" : "customer_id"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "customer_id"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "first_name",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"first_name\")"
+              "type" : "sql",
+              "expr" : "first_name"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "first_name"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "last_name",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"last_name\")"
+              "type" : "sql",
+              "expr" : "last_name"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "last_name"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "phone",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"phone\")"
+              "type" : "sql",
+              "expr" : "phone"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "phone"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "email",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"email\")"
+              "type" : "sql",
+              "expr" : "email"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "email"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "country_code",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"country_code\")"
+              "type" : "sql",
+              "expr" : "country_code"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "country_code"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "account_open_date",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"account_open_date\")"
+              "type" : "sql",
+              "expr" : "account_open_date"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "account_open_date"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "account_flags",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "col(\"account_flags\")"
+              "type" : "sql",
+              "expr" : "account_flags"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "account_flags"
           }, {
-            "functionName" : "column_expression",
-            "addReplaceColumn" : "full_name",
             "inputArgs" : [ {
-              "type" : "scala",
-              "expr" : "concat(col(\"first_name\"), lit(\" - \"), col(\"last_name\"))"
+              "type" : "sql",
+              "expr" : "concat(first_name, ' - ', last_name)"
             } ],
-            "enabled" : true
+            "functionName" : "column_expression",
+            "enabled" : true,
+            "addReplaceColumn" : "full_name"
           } ],
           "limit" : 0
         },
-        "ignore" : false
+        "metadata" : {
+          "label" : "CleanupData",
+          "x" : 359,
+          "y" : 52
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       },
       "Customers" : {
         "component" : "Source",
-        "metadata" : {
-          "label" : "Customers",
-          "x" : 170,
-          "y" : 50
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
+        "group" : null,
         "properties" : {
           "src_desc" : "",
           "phase" : 0,
@@ -146,8 +109,151 @@
           "udf_definitions" : [ ],
           "limit" : 0
         },
-        "ignore" : false
+        "metadata" : {
+          "label" : "Customers",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Orders" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "965",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Orders",
+          "x" : 168,
+          "y" : 196
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "ByCustomerId" : {
+        "component" : "Join",
+        "properties" : {
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "cache" : false,
+          "detailedStats" : false,
+          "phase" : 0,
+          "joinType" : "inner",
+          "joinCondition" : {
+            "expr" : "left.customer_id = right.customer_id",
+            "format" : "sql"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "expr" : "left.customer_id",
+              "format" : "sql"
+            }
+          }, {
+            "targetCol" : "phone",
+            "expression" : {
+              "expr" : "left.phone",
+              "format" : "sql"
+            }
+          }, {
+            "targetCol" : "email",
+            "expression" : {
+              "expr" : "left.email",
+              "format" : "sql"
+            }
+          }, {
+            "targetCol" : "order_id",
+            "expression" : {
+              "expr" : "right.order_id",
+              "format" : "sql"
+            }
+          }, {
+            "targetCol" : "amount",
+            "expression" : {
+              "expr" : "right.amount",
+              "format" : "sql"
+            }
+          } ]
+        },
+        "metadata" : {
+          "label" : "ByCustomerId",
+          "x" : 527,
+          "y" : 156
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
-    }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Customers",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "CleanupData",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e1"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "CleanupData",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "ByCustomerId",
+        "port" : "left"
+      },
+      "metadata" : {
+        "route" : "e_rJk2LSTMd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Orders",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "ByCustomerId",
+        "port" : "right"
+      },
+      "metadata" : {
+        "route" : "e_ryXnIrTfO"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1614792409993,
+      "id" : "DemoWorkflow",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      }
+    },
+    "inports" : { },
+    "outports" : { }
   }
 }

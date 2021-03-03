@@ -19,8 +19,10 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_Customers: Source   = Customers(spark)
-    val df_Reformat0: Reformat = Reformat0(spark, df_Customers)
+    val df_Customers:    Source   = Customers(spark)
+    val df_CleanupData:  Reformat = CleanupData(spark,  df_Customers)
+    val df_Orders:       Source   = Orders(spark)
+    val df_ByCustomerId: Join     = ByCustomerId(spark, df_CleanupData, df_Orders)
 
   }
 
